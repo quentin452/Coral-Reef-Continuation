@@ -67,10 +67,14 @@ public final class Util {
 	 * Checks if a block is water
 	 * @param block block to check
 	 */
-	static boolean checkWater(Block block) {
-		// if the block is any type of coral, it's not water
-		return !(block instanceof BlockCoral) && block.getMaterial() == Material.water;
-	}
+    static boolean checkWater(Block block) {
+        // If the block is a coral block, it's not water
+        if (block instanceof BlockCoral) {
+            return false;
+        }
+        // If it's not a coral block, then check the material
+        return block.getMaterial() == Material.water;
+    }
 
 	/**
 	 * Log message w/ FML's logger, prefixing '[CoralMod] '
@@ -80,7 +84,7 @@ public final class Util {
 	public static void log(Level level, String s) {
 		FMLLog.log(level, "[CoralMod] " + s);
 	}
-	
+
 	/**
 	 * Logs message as warning or info
 	 * @param s the message

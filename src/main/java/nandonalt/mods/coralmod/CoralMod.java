@@ -44,7 +44,7 @@ public final class CoralMod {
 	public static CoralMod instance;
 
 	private static final String coralModPkg = "nandonalt.mods.coralmod";
-	
+
 	/**
 	 * Proxy instance
 	 */
@@ -88,7 +88,7 @@ public final class CoralMod {
 		final Configuration config = new Configuration(new File(configDir, "settings.cfg"));
 		settingsManager = new ModSettings(config);
 
-		final List<ModSettings.LocalProperty> settings = new LinkedList<ModSettings.LocalProperty>();
+		final List<ModSettings.LocalProperty> settings = new LinkedList<>();
 		settings.add(new ModSettings.BooleanProperty("coralgen", true));
 		settings.add(new ModSettings.BooleanProperty("spikyenabled", true));
 		settings.add(new ModSettings.BooleanProperty("enablebubbles", true));
@@ -104,7 +104,7 @@ public final class CoralMod {
 		// TODO: change these settings...
 		// 'spikyenabled' is generation-related
 		// as are 'coralgen' and 'oceanonly'
-		final List<ModSettings.LocalProperty> genSettings = new LinkedList<ModSettings.LocalProperty>();
+		final List<ModSettings.LocalProperty> genSettings = new LinkedList<>();
 		genSettings.add(new ModSettings.IntProperty("baseheight", 0, 0, 64));
 		genSettings.add(new ModSettings.IntProperty("heightoffset", 128, 4, 256));
 		genSettings.add(new ModSettings.IntProperty("iterationfactor", 10, 0, 12));
@@ -137,14 +137,14 @@ public final class CoralMod {
 		coral3 = new BlockReef(1).setHardness(0.5F).setStepSound(Block.soundTypeStone).setBlockName("coralmod.Coral3");
 		coral4 = new BlockCoral(6).setHardness(0.2F).setStepSound(Block.soundTypeStone).setBlockName("coralmod.Coral4");
 		coral5 = new BlockCoral(6).setHardness(0.2F).setStepSound(Block.soundTypeStone).setLightLevel(1.0F).setBlockName("coralmod.CoralLightt");
-		
+
 		// Register blocks
 		GameRegistry.registerBlock(coral1, ItemCoral.class, "Coral1");
 		GameRegistry.registerBlock(coral2, "Coral2");
 		GameRegistry.registerBlock(coral3, "Coral3");
 		GameRegistry.registerBlock(coral4, ItemCoral.class, "Coral4");
 		GameRegistry.registerBlock(coral5, ItemCoral.class, "Coral5");
-		
+
 		// Add recipes
 		final Item dye = Items.dye;
 		GameRegistry.addRecipe(new ItemStack(dye, 1, 0xE), "B", 'B', new ItemStack(coral1, 1, 0));
