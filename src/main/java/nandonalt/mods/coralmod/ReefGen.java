@@ -74,67 +74,62 @@ final class ReefGen implements IReefGen {
 		return generated;
 	}
 
-	private void genCoral(World world, Random random, int j, int k, int m, int pass) {
-		final int p1, p2, p3;
-		// FIXME: might look cleaner as a switch
-		if(pass == 0) {
-			p1 = j;
-			p2 = k;
-			p3 = m;
-		} else if(pass == 1) {
-			p1 = j + 1;
-			p2 = k;
-			p3 = m;
-		} else if(pass == 2) {
-			p1 = j;
-			p2 = k;
-			p3 = m + 1;
-		} else if(pass == 3) {
-			p1 = j + 1;
-			p2 = k;
-			p3 = m + 1;
-		} else {
-			p1 = j;
-			p2 = k;
-			p3 = m;
-		}
+    private void genCoral(World world, Random random, int x, int y, int z, int pass) {
+        int xOffset = (pass == 1 || pass == 3) ? 1 : 0;
+        int zOffset = (pass == 2 || pass == 3) ? 1 : 0;
+        int posX = x + xOffset;
+        int posZ = z + zOffset;
 
-		if(Util.checkWater(world.getBlock(p1, p2 + 1, p3)) && random.nextInt(2) == 0) {
-			int rand = random.nextInt(3);
-			Util.setCoralBlock(world, p1, p2 + 1, p3, CoralMod.coral1, rand, 2);
-			if(random.nextInt(20) == 0) {
-				rand = 0;
-				Util.setCoralBlock(world, p1, p2 + 1, p3, CoralMod.coral5, 5, 2);
-			}
+        if (Util.checkWater(world.getBlock(posX, y + 1, posZ)) && random.nextInt(2) == 0) {
+            generateCoral(world, random, posX, y, posZ);
+        }
 
-			if(random.nextInt(5) == 0) {
-				rand = 0;
-				Util.setCoralBlock(world, p1, p2 + 1, p3, CoralMod.coral4, 3, 2);
-			}
+        if (spikyEnabled && random.nextInt(30) == 0 && Util.checkWater(world.getBlock(posX, y + 1, posZ))) {
+            generateSpikyCoral(world, random, posX, y, posZ);
+        }
+    }
 
-			if(random.nextInt(2) == 0 && rand == 1) {
-				Util.setCoralBlock(world, p1, p2 + 2, p3, CoralMod.coral1, 1, 2);
-				if(random.nextInt(4) == 0) {
-					Util.setCoralBlock(world, p1, p2 + 3, p3, CoralMod.coral1, 1, 2);
-					if(random.nextInt(8) == 0) {
-						Util.setCoralBlock(world, p1, p2 + 4, p3, CoralMod.coral1, 1, 2);
-						if(random.nextInt(8) == 0) {
-							Util.setCoralBlock(world, p1, p2 + 5, p3, CoralMod.coral1, 1, 2);
-						}
-					}
-				}
-			}
-		}
+    private void generateCoral(World world, Random random, int posX, int y, int posZ) {
+        int rand = random.nextInt(3);
+        Util.setCoralBlock(world, posX, y + 1, posZ, CoralMod.coral1, rand, 2);
 
-		if(spikyEnabled && random.nextInt(30) == 0 && Util.checkWater(world.getBlock(p1, p2 + 1, p3))) {
-			Util.setCoralBlock(world, p1, p2 + 1, p3, CoralMod.coral1, 4, 2);
-			if(random.nextInt(2) == 0) {
-				Util.setCoralBlock(world, p1, p2 + 2, p3, CoralMod.coral1, 4, 2);
-				if(random.nextInt(4) == 0) {
-					Util.setCoralBlock(world, p1, p2 + 3, p3, CoralMod.coral1, 4, 2);
-				}
-			}
-		}
-	}
+        generateAdditionalCoral(world, random, posX, y, posZ, rand);
+    }
 
+    private void generateAdditionalCoral(World world, Random random, int posX, int y, int posZ, int rand) {
+        if (random.nextInt(20) == 0) {
+            Util.setCoralBlock(world, posX, y + 1, posZ, CoralMod.coral5, 5, 2);
+        }
+
+        if (random.nextInt(5) == 0) {
+            Util.setCoralBlock(world, posX, y + 1, posZ, CoralMod.coral4, 3, 2);
+        }
+
+        if (random.nextInt(2) == 0 && rand == 1) {
+            Util.setCoralBlock(world, posX, y + 2, posZ, CoralMod.coral1, 1, 2);
+            generateStackedCoral(world, random, posX, y, posZ);
+        }
+    }
+
+    private void generateStackedCoral(World world, Random random, int posX, int y, int posZ) {
+        if (random.nextInt(4) == 0) {
+            Util.setCoralBlock(world, posX, y + 3, posZ, CoralMod.coral1, 1, 2);
+            if (random.nextInt(8) == 0) {
+                Util.setCoralBlock(world, posX, y + 4, posZ, CoralMod.coral1, 1, 2);
+                if (random.nextInt(8) == 0) {
+                    Util.setCoralBlock(world, posX, y + 5, posZ, CoralMod.coral1, 1, 2);
+                }
+            }
+        }
+    }
+
+    private void generateSpikyCoral(World world, Random random, int posX, int y, int posZ) {
+        Util.setCoralBlock(world, posX, y + 1, posZ, CoralMod.coral1, 4, 2);
+        if (random.nextInt(2) == 0) {
+            Util.setCoralBlock(world, posX, y + 2, posZ, CoralMod.coral1, 4, 2);
+            if (random.nextInt(4) == 0) {
+                Util.setCoralBlock(world, posX, y + 3, posZ, CoralMod.coral1, 4, 2);
+            }
+        }
+    }
 }
