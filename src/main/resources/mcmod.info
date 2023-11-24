@@ -1,0 +1,44 @@
+[
+{
+  "modid": "nandocore",
+  "name": "NandoCore",
+  "description": "Shared core for Nandonalt's mods.",
+  "version": "1.7.10-3.14",
+  "mcversion": "1.7.10",
+  "url": "http://www.minecraftforum.net/topic/1106449-",
+  "updateUrl": "",
+  "authorList": ["q3hardcore"],
+  "credits": "Nandonalt (original author)",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+},
+{
+  "modid": "coralmod",
+  "name": "CoralReef Mod",
+  "description": "A continuation of Nandonalt's CoralReef Mod.",
+  "version": "1.7.10-3.14",
+  "mcversion": "1.7.10",
+  "url": "http://www.minecraftforum.net/topic/1106449-",
+  "updateUrl": "",
+  "authorList": ["q3hardcore"],
+  "credits": "Nandonalt (original author)",
+  "logoFile": "assets/coralmod/textures/logo.png",
+  "screenshots": [],
+  "dependencies": [Forge, nandocore]
+},
+{
+  "modid": "scubadiving",
+  "name": "Scuba Diving",
+  "description": "A continuation of Nandonalt's Scuba Diving.",
+  "version": "1.7.10-3.14",
+  "mcversion": "1.7.10",
+  "url": "http://www.minecraftforum.net/topic/1106449-",
+  "updateUrl": "",
+  "authorList": ["q3hardcore"],
+  "credits": "Nandonalt (original author)",
+  "logoFile": "assets/scubadiving/textures/logo.png",
+  "screenshots": [],
+  "dependencies": [Forge, nandocore]
+}
+]

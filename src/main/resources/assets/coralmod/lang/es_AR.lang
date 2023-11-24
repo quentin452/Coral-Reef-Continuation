@@ -1,0 +1,35 @@
+# translation by @SikTheHedgehog
+
+commands.coralmod.usage=/coralmod [biomes|regen|settings|OPCIÓN|toggle <OPCIÓN>]
+
+coralmod.key.gui=GUI de Coral Reef
+
+coralmod.settings.title=CoralReef Mod
+coralmod.settings.enabled=Activado
+coralmod.settings.disabled=Desactivado
+coralmod.settings.options=Opciones
+
+coralmod.settings.coralgen=Gen. CoralReef
+coralmod.settings.spikyenabled=Coral Puntiagudo
+coralmod.settings.enablebubbles=Burbujas
+coralmod.settings.enablegrow=Crecimiento
+coralmod.settings.avgsize=Tamaño Promedio
+coralmod.settings.oceanonly=Sólo Océano
+coralmod.settings.alldimensions=Todas las Dimensiones
+coralmod.settings.light=Luz
+coralmod.settings.air=Aire
+coralmod.settings.debug=Debug
+
+coralmod.settings.avgsize.small=Chica
+coralmod.settings.avgsize.normal=Normal
+coralmod.settings.avgsize.big=Grande
+coralmod.settings.avgsize.size=Personalizado (sin implementar)
+
+tile.coralmod.Coral1.orange.name=Coral Naranja
+tile.coralmod.Coral1.green.name=Coral Verde
+tile.coralmod.Coral1.purple.name=Coral Violeta
+tile.coralmod.Coral1.spiky.name=Coral Puntiagudo
+tile.coralmod.Coral2.name=Coral de Mar
+tile.coralmod.Coral3.name=Coral Seco
+tile.coralmod.Coral4.pink.name=Coral Rosa
+tile.coralmod.CoralLightt.name=Coral de Luz

@@ -1,0 +1,7 @@
+# translation by @q3hardcore
+
+scubadiving.container.aircompressor=Air Compressor
+tile.scubadiving.AirCompressor.name=Air Compressor
+item.scubadiving.ScubaHelmet.name=Scuba Helmet
+item.scubadiving.ScubaTank.name=Scuba Tank
+item.scubadiving.ScubaTankEmpty.name=Scuba Tank (Empty)
